@@ -1,0 +1,68 @@
+// Place all the styles related to the restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restaurants {
+
+  tr.list_line_odd {
+    background-color: lightblue;
+  }
+
+  tfoot {
+    td {
+      padding: 0.5em 0;
+    }
+  }
+
+  footer {
+    font-size: 110%
+    font-weight bold;
+  }
+
+  textarea {
+    border: solid thin red;
+  }
+
+  .restaurant_table {
+    thead {
+      background-color: gray;
+      border-radius: 1em;
+    }
+    th {
+      font-size: 125%;
+      font-weight: bold;
+    }
+
+    td {
+      font-size: 110%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 110%;
+    font-weight: bold;
+  }
+
+  a:link {
+    color: blue;
+  }
+
+  a:visited {
+    color: red;
+  }
+
+  a:hover {
+    color: green;
+  }
+
+  .message {
+    font-size: 150%;
+    font-style: italic;
+  }
+
+
+
+
+
+}

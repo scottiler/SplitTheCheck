@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="main">
+      <h1>Split The Check</h1>
+      <h2>An online listing of restaurants' check spliting stats</h2>
+    </header>
+    <main class="<%= controller.controller_name %>">
+      <%= yield %>
+    </main>
   </body>
 </html>
