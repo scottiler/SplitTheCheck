@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  #get '/restaurants/:id/vote', to: 'restaurants#vote' as: 'vote_restaurant'
+  resources :sessions
+  get '/restaurants/:id/vote', to: 'restaurants#vote' 
 
 
   resources :restaurants

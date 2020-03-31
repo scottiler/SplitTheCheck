@@ -14,8 +14,9 @@
  *= require_self
  */
  header {
-  background-color: blue;
-  color: white;
+  background-color: gray;
+  border-radius: 1em;
+  color: black;
   width: 70em;
   padding-left: 1em;
   padding-top: 1.5em;
