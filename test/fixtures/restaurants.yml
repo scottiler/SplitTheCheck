@@ -3,11 +3,17 @@
 one:
   name: MyString
   location: MyString
-  willSplit: 
-  wontSplit: 
+  willSplit:
+  wontSplit:
 
 two:
   name: MyString
   location: MyString
-  willSplit: 
-  wontSplit: 
+  willSplit:
+  wontSplit:
+
+restaurant:
+  name: Burger King
+  location: 123 main st
+  willSplit:
+  wontSplit:

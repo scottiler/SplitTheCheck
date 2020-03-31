@@ -1,0 +1,43 @@
+<%= form_with(model: restaurant, local: true) do |form| %>
+  <% if restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+      <% restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h2><strong>Name:</strong>&nbsp<%= @restaurant.name %></h2>
+
+<h4><strong>Location:</strong>&nbsp<%= @restaurant.location %></h4>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Will split</th>
+      <th colspan="2"></th>
+      <th>Won't split</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @restaurant.willSplit = restaurant.willSplit + 1 %></td>
+    <td colspan="2"></td>
+    <td><%= restaurant.wontSplit %></td>
+  </tr>
+  <tr>
+    <td><button type="button">Vote Will Split</button></td>
+    <td colspan="2"></td>
+    <td><button type="button">Vote won't Split</button></td>
+  </tr>
+</table>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>
