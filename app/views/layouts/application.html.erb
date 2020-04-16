@@ -9,12 +9,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
     <header class="main">
+      <div id="log">
+        <% if !current_user %>
+          <%= link_to "Sign Up", new_user_registration_path %> &nbsp
+          <%= link_to "Sign In", new_user_session_path %>
+        <% else %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% end %>
+      </div>
       <h1>Split The Check</h1>
+      <% link_to "Logout", destroy_user_session_path %>
       <h2>An online listing of restaurants' check spliting stats</h2>
     </header>
     <main class="<%= controller.controller_name %>">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
   </body>

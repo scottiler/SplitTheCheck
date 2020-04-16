@@ -21,7 +21,9 @@
         <td><%= restaurant.willSplit %></td>
         <td><%= restaurant.wontSplit %></td>
         <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Vote', vote_path(restaurant) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Vote', vote_path(restaurant) %></td>
+        <% end %>
 
       </tr>
     <% end %>
@@ -29,5 +31,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Restaurant', new_restaurant_path %>
+<% end %>

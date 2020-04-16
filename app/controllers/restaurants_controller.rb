@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :vote, :destroy]
-
+  before_action :set_restaurant, only: [:show, :edit, :update, :vote]
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/new
   def new
-    @restaurant = Restaurant.new
+    @restaurant = current_user.restaurants.build
   end
 
   # GET /restaurants/1/edit
@@ -34,7 +34,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants
   # POST /restaurants.json
   def create
-    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant = current_user.restaurants.build(restaurant_params)
 
     respond_to do |format|
       if @restaurant.save
