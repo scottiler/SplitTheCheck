@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :sessions
-  get '/restaurants/:id/vote', to: 'restaurants#vote' 
+  get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote'
+  get '/restaurants/:id/voteUp', to: 'restaurants#voteUp', as: 'voteUp'
 
 
-  resources :restaurants
+  resources :restaurants, only: [:index, :new, :show, :update, :vote]
 
   root 'restaurants#index', as: 'restaurants_index'
 

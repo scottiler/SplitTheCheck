@@ -21,7 +21,7 @@
         <td><%= restaurant.willSplit %></td>
         <td><%= restaurant.wontSplit %></td>
         <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Vote', edit_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'Vote', vote_path(restaurant) %></td>
 
       </tr>
     <% end %>

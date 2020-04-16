@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :vote, :destroy]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -21,8 +21,14 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  # GET /restaurants/1/edit
+  # GET /restaurants/1/vote
   def vote
+  end
+
+  def voteUp
+    @resturant = Restaurant.find(params[:id])
+    @resturant.willSplit = @resturant.willSplit + 1;
+    @restaurant.update(restaurant_params)
   end
 
   # POST /restaurants
