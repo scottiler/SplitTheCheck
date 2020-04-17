@@ -25,12 +25,6 @@ class RestaurantsController < ApplicationController
   def vote
   end
 
-  def voteUp
-    @resturant = Restaurant.find(params[:id])
-    @resturant.willSplit = @resturant.willSplit + 1;
-    @restaurant.update(restaurant_params)
-  end
-
   # POST /restaurants
   # POST /restaurants.json
   def create
@@ -79,6 +73,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :location, :willSplit, :wontSplit)
+      params.require(:restaurant).permit(:name, :location)
     end
 end

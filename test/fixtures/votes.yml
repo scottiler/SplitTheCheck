@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userID: 
+  restuarantID: 1
+  voteCast: MyString
+
+two:
+  userID: 
+  restuarantID: 1
+  voteCast: MyString

@@ -17,15 +17,16 @@
           <%= link_to "Sign Up", new_user_registration_path %> &nbsp
           <%= link_to "Sign In", new_user_session_path %>
         <% else %>
+          <P> <%= current_user.email %> is signed in.
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </p>
         <% end %>
       </div>
       <h1>Split The Check</h1>
-      <% link_to "Logout", destroy_user_session_path %>
       <h2>An online listing of restaurants' check spliting stats</h2>
     </header>
     <main class="<%= controller.controller_name %>">
-      <p class="notice"><%= notice %></p>
+      <!--<p class="notice"><%= notice %></p>-->
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>

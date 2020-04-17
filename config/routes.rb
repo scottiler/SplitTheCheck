@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get '/votes/:@userVotes/voteHistory', to: 'votes#history', as: 'voteHistory'
+  resources :votes
   devise_for :users
   resources :sessions
-  get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote'
-  get '/restaurants/:id/voteUp', to: 'restaurants#voteUp', as: 'voteUp'
+  get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote_cast'
+  get '/votes/:id/submitVote', to: 'votes#submitVote', as: 'submitVote'
 
 
   resources :restaurants, only: [:index, :new, :show, :update, :vote]

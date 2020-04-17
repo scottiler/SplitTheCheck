@@ -29,7 +29,7 @@
     <td><%= restaurant.wontSplit %></td>
   </tr>
   <tr class="action">
-    <td><%= link_to '<button type="button">Vote will Split</button>'.html_safe, voteUp_path(restaurant) %> </td>
+    <td><%= link_to '<button type="button">Vote will Split</button>'.html_safe, submitVote_path(restaurant) %> </td>
     <td colspan="2"></td>
     <td><%= link_to '<button type="button">Vote wont Split</button>' %></td>
   </tr>

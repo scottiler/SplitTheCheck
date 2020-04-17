@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Restaurant List</h1>
-
+<div><%= link_to 'View Vote History', votes_path %></div>
 <table class="restaurant_table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Location</th>
-      <th>Will split</th>
-      <th>Won't split</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,11 +16,9 @@
       <tr class = "<%= cycle('list_line_odd', 'list_line_even') %>">
         <td><%= restaurant.name %></td>
         <td><%= restaurant.location %></td>
-        <td><%= restaurant.willSplit %></td>
-        <td><%= restaurant.wontSplit %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <% if user_signed_in? %>
-          <td><%= link_to 'Vote', vote_path(restaurant) %></td>
+          <td><%= link_to 'Vote', vote_cast_path(restaurant) %></td>
         <% end %>
 
       </tr>
