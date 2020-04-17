@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :vote]
+  before_action :set_restaurant, only: [:show, :edit, :update, :create, :vote]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /restaurants
   # GET /restaurants.json
@@ -32,6 +32,7 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
+        p 'scott'
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
       else

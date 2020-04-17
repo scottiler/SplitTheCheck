@@ -23,15 +23,11 @@
       <th>Won't split</th>
     </tr>
   </thead>
-  <tr>
-    <td><%= @restaurant.willSplit = restaurant.willSplit%></td>
-    <td colspan="2"></td>
-    <td><%= restaurant.wontSplit %></td>
-  </tr>
+
   <tr class="action">
-    <td><%= link_to '<button type="button">Vote will Split</button>'.html_safe, submitVote_path(restaurant) %> </td>
+    <td><%= link_to '<button type="button">Vote will Split</button>'.html_safe, submitVoteUp_path(restaurant) %> </td>
     <td colspan="2"></td>
-    <td><%= link_to '<button type="button">Vote wont Split</button>' %></td>
+    <td><%= link_to '<button type="button">Vote wont Split</button>'.html_safe, submitVoteDown_path(restaurant) %></td>
   </tr>
 </table>
 

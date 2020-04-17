@@ -5,7 +5,6 @@ class VotesController < ApplicationController
   # GET /votes.json
   def index
     @votes = Vote.all
-    p params
   end
 
   # GET /votes/1
@@ -22,28 +21,44 @@ class VotesController < ApplicationController
   end
 
   def voteHistory
-    p params
-  #  get_user_votes
-  #  @votes.each do |vote|
-  #    if vote.userID == current_user.id
-  #      @userVotes = @votes
-  #    end
-  #  end
   end
 
-  def submitVote
+  def stats
+    #@votes = Vote.all
+    @restaurant = @restaurant = Restaurant.find(Integer(params[:Restaurant]))
+    #@votes.each do |vote|
+    #  if vote.restaurantID == @resturant.id
+    #    if vote.voteCast == 'up'
+    #      @upVotes += 1
+    #    end
+    #  end
+    #end
+  end
+
+  def submitVoteUp
     @vote = Vote.new
     @vote.userID = current_user.id
     @vote.restaurantID = Integer(params[:id])
     @vote.voteCast = 'up'
     if @vote.save
-      format.html { redirect_to @vote, notice: 'Vote was successfully cast.' }
-      format.json { render :show, status: :created, location: @vote }
+      redirect_to restaurants_path
     else
       format.html { render :new }
       format.json { render json: @vote.errors, status: :unprocessable_entity }
     end
+  end
 
+  def submitVoteDown
+    @vote = Vote.new
+    @vote.userID = current_user.id
+    @vote.restaurantID = Integer(params[:id])
+    @vote.voteCast = 'down'
+    if @vote.save
+      redirect_to restaurants_path
+    else
+      format.html { render :new }
+      format.json { render json: @vote.errors, status: :unprocessable_entity }
+    end
   end
 
   # GET /votes/new

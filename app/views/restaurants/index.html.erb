@@ -17,6 +17,7 @@
         <td><%= restaurant.name %></td>
         <td><%= restaurant.location %></td>
         <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'Stats', stats_path(restaurant) %></td>
         <% if user_signed_in? %>
           <td><%= link_to 'Vote', vote_cast_path(restaurant) %></td>
         <% end %>

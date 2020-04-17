@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
-  get '/votes/:@userVotes/voteHistory', to: 'votes#history', as: 'voteHistory'
+  get '/votes/voteHistory', to: 'votes#history', as: 'voteHistory'
+  get '/votes/:Restaurant/stats', to: 'votes#stats', as: 'stats'
   resources :votes
   devise_for :users
   resources :sessions
   get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote_cast'
-  get '/votes/:id/submitVote', to: 'votes#submitVote', as: 'submitVote'
+  get '/votes/:id/submitVoteUp', to: 'votes#submitVoteUp', as: 'submitVoteUp'
+  get '/votes/:id/submitVoteDown', to: 'votes#submitVoteDown', as: 'submitVoteDown'
 
-
-  resources :restaurants, only: [:index, :new, :show, :update, :vote]
+  resources :restaurants, only: [:index, :new, :create, :show, :update, :vote]
 
   root 'restaurants#index', as: 'restaurants_index'
 
