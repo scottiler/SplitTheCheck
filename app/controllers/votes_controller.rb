@@ -24,15 +24,19 @@ class VotesController < ApplicationController
   end
 
   def stats
-    #@votes = Vote.all
-    @restaurant = @restaurant = Restaurant.find(Integer(params[:Restaurant]))
-    #@votes.each do |vote|
-    #  if vote.restaurantID == @resturant.id
-    #    if vote.voteCast == 'up'
-    #      @upVotes += 1
-    #    end
-    #  end
-    #end
+    @votes = Vote.all
+    @restaurant = Restaurant.find(Integer(params[:Restaurant]))
+    @upVotes = 0
+    @downVotes = 0
+    @votes.each do |vote|
+      if vote.restaurantID == @restaurant.id
+        if vote.voteCast == 'up'
+          @upVotes += 1
+        else
+          @downVotes += 1
+        end
+      end
+    end
   end
 
   def submitVoteUp
