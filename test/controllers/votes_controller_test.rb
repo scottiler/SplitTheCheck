@@ -17,7 +17,7 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create vote" do
     assert_difference('Vote.count') do
-      post votes_url, params: { vote: { restuarantID: @vote.restuarantID, userID: @vote.userID, voteCast: @vote.voteCast } }
+      post votes_url, params: { vote: { restaurantID: @vote.restaurantID, userID: @vote.userID, voteCast: @vote.voteCast } }
     end
 
     assert_redirected_to vote_url(Vote.last)
@@ -28,13 +28,8 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_vote_url(@vote)
-    assert_response :success
-  end
-
   test "should update vote" do
-    patch vote_url(@vote), params: { vote: { restuarantID: @vote.restuarantID, userID: @vote.userID, voteCast: @vote.voteCast } }
+    patch vote_url(@vote), params: { vote: { restaurantID: @vote.restaurantID, userID: @vote.userID, voteCast: @vote.voteCast } }
     assert_redirected_to vote_url(@vote)
   end
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments
   get '/votes/voteHistory', to: 'votes#history', as: 'voteHistory'
   get '/votes/:Restaurant/stats', to: 'votes#stats', as: 'stats'
   resources :votes
