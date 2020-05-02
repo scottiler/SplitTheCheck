@@ -3,5 +3,6 @@ class Restaurant < ApplicationRecord
   validates :location, uniqueness: true
 
   belongs_to :user
-  belongs_to :vote
+  has_many :votes
+  has_many :comments
 end

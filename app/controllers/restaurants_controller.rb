@@ -32,7 +32,6 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        p 'scott'
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
       else

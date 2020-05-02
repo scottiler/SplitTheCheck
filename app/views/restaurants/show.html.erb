@@ -10,4 +10,21 @@
   <%= @restaurant.location %>
 </p>
 
+<table>
+
+  </thead>
+  <h2>Comments</h2>
+  <tbody>
+    <% @comments = Comment.all %>
+    <% @comments.each do |comment| %>
+    <div>
+        <%= comment.title %>
+        <%= comment.content %>
+    </div>
+    <% end %>
+  </tbody>
+
 <%= link_to 'Back', restaurants_path %>
+<% if user_signed_in? %>
+  <td><%= link_to 'Leave Comment', createComment_path %></td>
+<% end %>

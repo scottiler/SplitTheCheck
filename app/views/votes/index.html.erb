@@ -14,7 +14,7 @@
 
   <tbody>
     <% @votes.each do |vote| %>
-      <% restaurant = Restaurant.find(vote.restaurantID) %>
+      <% restaurant = Restaurant.find(vote.restaurantID.to_i) %>
       <tr>
         <td><%= vote.userID %></td>
         <td><%= restaurant.name %></td>

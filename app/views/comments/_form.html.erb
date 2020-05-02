@@ -11,14 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :userID %>
-    <%= form.number_field :userID %>
-  </div>
+    <%= hidden_field :userID, value: @comment.userID %>
+    <%= hidden_field :restaurantID, value: @comment.restaurantID %>
 
-  <div class="field">
-    <%= form.label :restaurantID %>
-    <%= form.number_field :restaurantID %>
+
+  <div>
+    <% form.label :restaurantID %>
+    <%= form.text_field :restaurantID %>
   </div>
 
   <div class="field">
@@ -32,6 +31,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Post Comment' %>
   </div>
 <% end %>

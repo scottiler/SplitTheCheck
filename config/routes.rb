@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
 
+  get '/comments/:id/createComment', to: 'comments#createComment', as: 'createComment'
+  get '/comments/postComment', to: 'comments#postComment', as: 'postComment'
   resources :comments
+
   get '/votes/voteHistory', to: 'votes#history', as: 'voteHistory'
   get '/votes/:Restaurant/stats', to: 'votes#stats', as: 'stats'
-  resources :votes
-  devise_for :users
-  resources :sessions
-  get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote_cast'
   get '/votes/:id/submitVoteUp', to: 'votes#submitVoteUp', as: 'submitVoteUp'
   get '/votes/:id/submitVoteDown', to: 'votes#submitVoteDown', as: 'submitVoteDown'
+  resources :votes
 
+  devise_for :users
+
+  resources :sessions
+
+  get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote_cast'
   resources :restaurants, only: [:index, :new, :create, :show, :update, :vote]
 
   root 'restaurants#index', as: 'restaurants_index'

@@ -1,4 +1,4 @@
-<h1>New Comment</h1>
+<h1>Comment for <%= Restaurant.find(@comment.restaurantID).name %></h1>
 
 <%= render 'form', comment: @comment %>
 

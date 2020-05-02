@@ -15,6 +15,21 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @comment.userID = current_user.id
+    @comment.restaurantID = Integer(params[:id])
+  end
+
+  def createComment
+    @comment = Comment.new
+    @comment.userID = current_user.id
+    @comment.restaurantID = Integer(params[:id])
+    render :new
+  end
+
+  def postComment
+    @comment = Comment.new(comment_params)
+
+    create
   end
 
   # GET /comments/1/edit
