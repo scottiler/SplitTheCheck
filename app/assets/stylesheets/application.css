@@ -13,11 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   background-color: #cceeff;
+ }
+
+
  header {
   background-color: gray;
   border-radius: 1em;
   color: black;
-  width: 70em;
   padding-left: 1em;
   padding-top: 1.5em;
   height: 10em;

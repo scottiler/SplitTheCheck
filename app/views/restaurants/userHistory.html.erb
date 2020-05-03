@@ -1,5 +1,10 @@
-<h1>Your History</h1><br>
+<h1>Your Dashboard</h1><br>
 
+<p id="notice"><%= notice %></p>
+
+<div>
+  <%= link_to '<button type="button">Restaurant List</button>'.html_safe, restaurants_path %>
+</div>
 <div class="historyTable">
   <h2>Votes</h2>
   <table>
@@ -8,7 +13,6 @@
         <th>User ID</th>
         <th>Restuarant</th>
         <th>Votecast</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
@@ -20,7 +24,6 @@
             <td><%= vote.userID %></td>
             <td><%= Restaurant.find(vote.restaurantID).name %></td>
             <td><%= vote.voteCast %></td>
-            <td><%= link_to 'Show', vote %></td>
           </tr>
         <% end %>
       <% end %>
@@ -28,57 +31,47 @@
   </table>
 </div>
 
-<h1>Favorites</h1>
+<div class="favoriteTable">
+  <h2>Favorites</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Userid</th>
-      <th>Restaurantid</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
+  <table>
+    <thead>
+      <tr>
+        <th>Userid</th>
+        <th>Restaurantid</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @favorites = Favorite.all %>
-    <% @favorites.each do |favorite| %>
-      <% if favorite.userID == current_user.id %>
-        <tr>
-          <td><%= favorite.userID %></td>
-          <td><%= Restaurant.find(favorite.restaurantID).name %></td>
-          <td><%= link_to 'Remove', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+    <tbody>
+      <% @favorites = Favorite.all %>
+      <% @favorites.each do |favorite| %>
+        <% if favorite.userID == current_user.id %>
+          <tr>
+            <td><%= favorite.userID %></td>
+            <td><%= Restaurant.find(favorite.restaurantID).name %></td>
+            <td><%= link_to 'Remove', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
-<h2>Comments</h2><br>
-
-<table>
-  <thead>
-    <tr>
-      <th>Userid</th>
-      <th>Restaurant</th>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% comments = Comment.all %>
-    <% comments.each do |comment| %>
-      <% if comment.userID == current_user.id %>
-        <tr>
-          <td><%= comment.userID %></td>
-          <td><%= Restaurant.find(comment.restaurantID).name %></td>
-          <td><%= comment.title %></td>
-          <td><%= comment.content %></td>
-          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-          <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+<div class="commentPanel">
+  <h2>Comments</h2>
+    <tbody>
+      <% comments = Comment.all %>
+      <% comments.each do |comment| %>
+        <% if comment.userID == current_user.id %>
+          <div class="commentContainer">
+            <h2><%= Restaurant.find(comment.restaurantID).name %></h2>
+            <h3><%= comment.title %></h3>
+            <p><%= comment.content %></p>
+            <%= link_to 'Edit', edit_comment_path(comment) %></td>
+            <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+</div>

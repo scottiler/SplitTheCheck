@@ -1,11 +1,11 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.restaurants {
+body {
+  background-color: #cceeff;
+}
 
-  tr.list_line_odd {
-    background-color: lightblue;
-  }
+.restaurants {
 
   tfoot {
     td {
@@ -23,14 +23,22 @@
   }
 
   .restaurant_table {
+    table {
+      border: 1px solid black;
+      margin-top: 1em;
+    }
+
     thead {
       background-color: gray;
-      border-radius: 1em;
     }
+
     th {
       font-size: 125%;
       font-weight: bold;
+      width: 60em;
     }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
 
     td {
       font-size: 110%;
@@ -60,11 +68,77 @@
     font-style: italic;
   }
 
-  .historyTable{
+  .historyTable {
     padding: .5em;
-    width: 70em;
-    border: solid;
+    width: 20em;
+    background-color: white;
+    margin-top: .5em;
+    margin-right: .5em;
+    margin-bottom: .5em;
+    border: 2px solid black;
+    float: left;
+    table {
+      border: 1px solid black;
+    }
+    th {
+      background-color: gray;
+      font-size: 125%;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:nth-child(odd) {background-color: white;}
+
+    td {
+      font-size: 110%;
+    }
   }
 
+  .favoriteTable {
+    padding: .5em;
+    width: 20em;
+    background-color: white;
+    margin-top: .5em;
+    margin-right: .5em;
+    border: 2px solid black;
+    float: left;
+
+    table {
+      border: 1px solid black;
+    }
+    th {
+      background-color: gray;
+      font-size: 125%;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    tr:nth-child(odd) {background-color: white;}
+
+    td {
+      font-size: 110%;
+    }
+  }
+
+
+  .commentPanel {
+    padding: .5em;
+    background-color: white;
+    margin-top: .5em;
+    margin-right: .5em;
+    border: 2px solid black;
+    clear: left;
+    float: left;
+  }
+
+  .commentContainer {
+    border: 1px solid blue;
+    padding: .5em;
+    margin: .5em;
+
+    h2 {
+      background-color: lightgray;
+    }
+  }
 
 }

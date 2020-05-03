@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<div>
+  <%= link_to '<button type="button">Back</button>'.html_safe, restaurants_path %>
+  <% if user_signed_in? %>
+    <%= link_to '<button type="button">Leave Comment</button>'.html_safe, createComment_path %>
+    <%= link_to '<button type="button">Add To Favorites</button>'.html_safe, addFavorite_path(@restaurant) %>
+  <% end %>
+</div>
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -10,24 +16,17 @@
   <%= @restaurant.location %>
 </p>
 
-<table>
-
-  </thead>
+<div class="commentPanel">
   <h2>Comments</h2>
   <tbody>
     <% @comments = Comment.all %>
     <% @comments.each do |comment| %>
       <% if comment.restaurantID == @restaurant.id %>
-        <div>
+        <div class="commentContainer">
           <h3><%= comment.title %></h3>
           <p><%= comment.content %></p>
         </div>
       <% end %>
     <% end %>
   </tbody>
-
-<%= link_to 'Back', restaurants_path %>
-<% if user_signed_in? %>
-  <%= link_to 'Leave Comment', createComment_path %>
-  <%= link_to 'Add To Favorites', addFavorite_path(@restaurant) %>
-<% end %>
+</div>
