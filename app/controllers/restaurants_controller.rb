@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
   def vote
   end
 
+
   # POST /restaurants
   # POST /restaurants.json
   def create

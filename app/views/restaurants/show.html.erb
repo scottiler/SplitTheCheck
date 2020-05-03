@@ -17,14 +17,17 @@
   <tbody>
     <% @comments = Comment.all %>
     <% @comments.each do |comment| %>
-    <div>
-        <%= comment.title %>
-        <%= comment.content %>
-    </div>
+      <% if comment.restaurantID == @restaurant.id %>
+        <div>
+          <h3><%= comment.title %></h3>
+          <p><%= comment.content %></p>
+        </div>
+      <% end %>
     <% end %>
   </tbody>
 
 <%= link_to 'Back', restaurants_path %>
 <% if user_signed_in? %>
-  <td><%= link_to 'Leave Comment', createComment_path %></td>
+  <%= link_to 'Leave Comment', createComment_path %>
+  <%= link_to 'Add To Favorites', addFavorite_path(@restaurant) %>
 <% end %>

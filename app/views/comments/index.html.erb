@@ -15,15 +15,17 @@
 
   <tbody>
     <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.userID %></td>
-        <td><%= comment.restaurantID %></td>
-        <td><%= comment.title %></td>
-        <td><%= comment.content %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if comment.userID == current_user.id %>
+        <tr>
+          <td><%= comment.userID %></td>
+          <td><%= comment.restaurantID %></td>
+          <td><%= comment.title %></td>
+          <td><%= comment.content %></td>
+          <td><%= link_to 'Show', comment %></td>
+          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+          <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

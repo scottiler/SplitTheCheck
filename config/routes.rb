@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  get '/favorites/:id/addFavorite', to: 'favorites#addFavorite', as: 'addFavorite'
+  resources :favorites
   get '/comments/:id/createComment', to: 'comments#createComment', as: 'createComment'
   get '/comments/postComment', to: 'comments#postComment', as: 'postComment'
   resources :comments
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :sessions
-
+  get '/restaurants/userHistory', to: 'restaurants#userHistory',  as: 'userHistory'
   get '/restaurants/:id/vote', to: 'restaurants#vote',  as: 'vote_cast'
   resources :restaurants, only: [:index, :new, :create, :show, :update, :vote]
 

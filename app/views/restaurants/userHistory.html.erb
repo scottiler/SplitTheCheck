@@ -1,0 +1,84 @@
+<h1>Your History</h1><br>
+
+<div class="historyTable">
+  <h2>Votes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Restuarant</th>
+        <th>Votecast</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% votes = Vote.all %>
+      <% votes.each do |vote| %>
+        <% if vote.userID == current_user.id %>
+          <tr>
+            <td><%= vote.userID %></td>
+            <td><%= Restaurant.find(vote.restaurantID).name %></td>
+            <td><%= vote.voteCast %></td>
+            <td><%= link_to 'Show', vote %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h1>Favorites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>Restaurantid</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites = Favorite.all %>
+    <% @favorites.each do |favorite| %>
+      <% if favorite.userID == current_user.id %>
+        <tr>
+          <td><%= favorite.userID %></td>
+          <td><%= Restaurant.find(favorite.restaurantID).name %></td>
+          <td><%= link_to 'Remove', favorite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Comments</h2><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Userid</th>
+      <th>Restaurant</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% comments = Comment.all %>
+    <% comments.each do |comment| %>
+      <% if comment.userID == current_user.id %>
+        <tr>
+          <td><%= comment.userID %></td>
+          <td><%= Restaurant.find(comment.restaurantID).name %></td>
+          <td><%= comment.title %></td>
+          <td><%= comment.content %></td>
+          <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+          <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

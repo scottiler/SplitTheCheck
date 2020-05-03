@@ -1,7 +1,6 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .restaurants {
 
   tr.list_line_odd {
@@ -61,8 +60,11 @@
     font-style: italic;
   }
 
-
-
+  .historyTable{
+    padding: .5em;
+    width: 70em;
+    border: solid;
+  }
 
 
 }
