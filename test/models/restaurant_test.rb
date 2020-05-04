@@ -9,10 +9,12 @@ class RestaurantTest < ActiveSupport::TestCase
   end
 
   test "Restaurant is not valid without a unique location" do
-    restaurant = Restaurant.new(location: restaurants(:restaurant).location,
+    restaurant = Restaurant.new(location: restaurants(:bk).location,
     name: "Burger King")
 
     assert restaurant.invalid?
     assert_equal ["has already been taken"], restaurant.errors[:location]
   end
+
+
 end

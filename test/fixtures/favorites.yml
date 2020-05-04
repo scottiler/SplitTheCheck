@@ -2,8 +2,12 @@
 
 one:
   userID: 1
-  restaurantID: 1
+  restaurantID: 53
 
 two:
-  userID: 1
-  restaurantID: 1
+  userID: 2
+  restaurantID: 54
+
+test:
+  userID: 2
+  restaurantID: 55
