@@ -6,7 +6,7 @@
 #
 one:
   email: "email_address1@email.com"
-  encrypted_password: "$2a$11$71kcU44ea7wp8Xql8QjTmOXx7mVaaw59Y1kOLxlHtej/MA1oOd9pa"
+  encrypted_password: "Ub4/8VFF2O+e9WVKKoVEBfUGy4nz250J2rueKYcJ2Zy6ZRMZ94e5/b5nCAxVk9kmAslpHymX+cKc5o7hLUsV/A=="
 
 two:
   email: "email_address2@email.com"

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  
+
 
   # GET /comments/new
   def new

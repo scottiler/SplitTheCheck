@@ -12,12 +12,12 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_restaurant_url
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should create restaurant" do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { location: @restaurant.location, name: @restaurant.name, willSplit: @restaurant.willSplit, wontSplit: @restaurant.wontSplit } }
+      post restaurants_url, params: { restaurant: { location: @restaurant.location, name: @restaurant.name } }
     end
 
     assert_redirected_to restaurant_url(Restaurant.last)
@@ -28,15 +28,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_restaurant_url(@restaurant)
-    assert_response :success
-  end
 
-  test "should update restaurant" do
-    patch restaurant_url(@restaurant), params: { restaurant: { location: @restaurant.location, name: @restaurant.name, willSplit: @restaurant.willSplit, wontSplit: @restaurant.wontSplit } }
-    assert_redirected_to restaurant_url(@restaurant)
-  end
 
 #  test "should destroy restaurant" do
 #    assert_difference('Restaurant.count', -1) do
