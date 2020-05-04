@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  before_action :set_vote, only: [:show, :edit]
 
   # GET /votes
   # GET /votes.json
@@ -10,14 +10,6 @@ class VotesController < ApplicationController
   # GET /votes/1
   # GET /votes/1.json
   def show
-  end
-
-  def get_user_votes
-    @votes.each do |vote|
-      if vote.userID == current_user.id
-        @userVotes += vote
-      end
-    end
   end
 
   def voteHistory
@@ -44,10 +36,11 @@ class VotesController < ApplicationController
     @vote.userID = current_user.id
     @vote.restaurantID = Integer(params[:id])
     @vote.voteCast = 'up'
+    @restaurant = Restaurant.find(Integer(@vote.restaurantID))
     if @vote.save
-      redirect_to restaurants_path
+      redirect_to restaurants_path, notice: 'The vot was successfully cast.'
     else
-      format.html { render :new }
+      format.html { render :vote }
       format.json { render json: @vote.errors, status: :unprocessable_entity }
     end
   end
@@ -58,9 +51,9 @@ class VotesController < ApplicationController
     @vote.restaurantID = Integer(params[:id])
     @vote.voteCast = 'down'
     if @vote.save
-      redirect_to restaurants_path
+      redirect_to restaurants_path, notice: 'The vot was successfully cast.'
     else
-      format.html { render :new }
+      format.html { render :vote }
       format.json { render json: @vote.errors, status: :unprocessable_entity }
     end
   end

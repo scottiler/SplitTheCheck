@@ -1,30 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <%= link_to '<button type="button">Restaurant List</button>'.html_safe, restaurants_path %>
+</div>
 
-<h1>Votes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User ID</th>
-      <th>Restuarant</th>
-      <th>Votecast</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @votes.each do |vote| %>
-      <% restaurant = Restaurant.find(vote.restaurantID.to_i) %>
+<div class="historyTable">
+  <h1>Votes</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= vote.userID %></td>
-        <td><%= restaurant.name %></td>
-        <td><%= vote.voteCast %></td>
-        <td><%= link_to 'Show', vote %></td>
+        <th>User ID</th>
+        <th>Restuarant</th>
+        <th>Votecast</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'Back To Restaurant Index', restaurants_path %>
+    <tbody>
+      <% @votes.each do |vote| %>
+        <% restaurant = Restaurant.find(vote.restaurantID.to_i) %>
+        <tr>
+          <td><%= vote.userID %></td>
+          <td><%= restaurant.name %></td>
+          <td><%= vote.voteCast %></td>
+          <td><%= link_to 'Show', vote %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

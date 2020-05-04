@@ -1,3 +1,28 @@
 // Place all the styles related to the Votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.historyTable {
+  padding: .5em;
+  width: 41em;
+  background-color: white;
+  margin-top: .5em;
+  margin-right: .5em;
+  margin-bottom: .5em;
+  border: 2px solid black;
+  table {
+    border: 1px solid black;
+    width: 40em;
+  }
+  th {
+    background-color: gray;
+    font-size: 125%;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  tr:nth-child(odd) {background-color: white;}
+
+  td {
+    font-size: 110%;
+  }
+}

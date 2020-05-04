@@ -7,16 +7,10 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-  end
+  
 
   # GET /comments/new
   def new
-    @comment = Comment.new
-    @comment.userID = current_user.id
-    @comment.restaurantID = Integer(params[:id])
   end
 
   def createComment
@@ -24,12 +18,6 @@ class CommentsController < ApplicationController
     @comment.userID = current_user.id
     @comment.restaurantID = Integer(params[:id])
     render :new
-  end
-
-  def postComment
-    @comment = Comment.new(comment_params)
-
-    create
   end
 
   # GET /comments/1/edit
@@ -40,7 +28,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @restaurant = Restaurant.find(Integer(@comment.restaurantID))
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @restaurant, notice: 'The comment was successfully posted.' }
